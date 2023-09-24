@@ -1,0 +1,109 @@
+1.System-all users
+2.Global-all repositories
+3.Local-current repository
+
+git config --global user.name "Kavindar"
+git config --global user.email "kavindarofficially@gmail.com"
+git config --global core.editor "code --wait"
+
+#to edit the global settings 
+git config --global -e
+#windows
+	git config --global core.autocrlf input
+#linux/macOS
+	git config --global core.autocrlf true
+
+#for help 
+	git config --help
+		//space key - next page
+		//q key - quit config --help
+ 
+#create or append a text or program file
+echo "string values" > filename.txt
+
+#insert to the staging area
+git add filename.txt
+git add *.txt
+
+#to insert from staging to the repository 
+git commit -m "message" //better use present tense
+
+#to insert everything from working directory to repository
+git commit -a -m "message"
+
+#to remove file from working directory 
+rm filename.txt
+
+#to remove file from both working directory and staging area
+git rm filename.txt
+
+#to check the staging area 
+git ls-files
+
+#to check the status 
+git status
+
+#to move/rename files in working directory 
+mv filename1.txt filename2.txt 
+
+#to move/rename files in working directory and staging area 
+git mv filename1.txt filename2.txt 
+
+#to create a new directory
+mkdir "directory name"
+
+#to ignore some files
+echo filename.txt > .gitignore
+
+#to ignore some directory
+echo directoryname/ > .gitignore
+
+#to remove files/directories from index/staging area not from working directory
+git rm --cached -r file.txt
+
+git config --global diff.tool vscode 
+#we named as vscode
+
+git config --global difftool.vscode.cmd "code --wait --diff $LOCAL $REMOTE"
+
+#check the global settings
+git config --global -e
+
+#to view changes between local and index area
+git difftool
+
+#to view changes between index area and repository
+git difftool --staged
+
+#to see the history
+git log
+
+#to see history in one line
+git log --oneline
+
+#to see the history in cronological order
+git log --oneline --reverse
+
+#to see the diff in files
+git show d6fd2dg
+
+#to see the diff in files in last commit
+git show HEAD
+
+#to see the diff in files in ith from last commit
+git show HEAD~i
+
+#to see the contents of files
+git show HEAD~i:filename.txt
+
+#to see the directories
+git ls-tree HEAD~i
+
+#to restore the files from staging area to working directory 
+git restore --staged filename.txt
+
+#to restore the files from commit to working directory 
+git restore --source=HEAD~i filename.txt
+
+#to remove the untracked files and directories f-force and d-directories
+git clean -f -d
